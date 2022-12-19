@@ -1,0 +1,34 @@
+<%= form_with(model: publish) do |form| %>
+  <% if publish.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(publish.errors.count, "error") %> prohibited this publish from being saved:</h2>
+
+      <ul>
+        <% publish.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row" id="title-question">
+    <h2>Cuál es tu pregunta?</h2>
+  </div>
+  <div class="row" id="input-title">
+    <%# <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title, class:"form-control"%>
+    <div id="info-question" class="form-text">Especifique su pregunta de forma clara</div>
+  </div>
+
+  <div class="row" id="input-content">
+    <%# <%= form.label :content, style: "display: block" %>
+    <%= form.rich_text_area :content, class:"form-control" %>
+    <div id="info-body" class="form-text">Incluye toda la información necesaria para respoder tu pregunta</div>
+  </div>
+
+  <div class="row">
+    <%= form.submit class:"btn btn-warning", value:'Guardar' %>
+  </div>
+  <div class="row" id="back-question">
+  <%= link_to "Regresar a inicio", publishes_path %>
+  </div>
+<% end %>

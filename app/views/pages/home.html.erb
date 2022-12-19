@@ -20,11 +20,4 @@
       <% end %>
     </div>
   </div>
-
-  <%= turbo_stream_from "public_messages" %>
-  <div class="col-4" id="public_messages" style="overflow: hidden; height: calc(100vh-56px); padding: 0px;">
-    <% @messages.each do |message| %>
-      <%= render "messages/message_preview", message: message %>
-    <% end %>
-  </div>
 </div>

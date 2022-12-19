@@ -1,0 +1,10 @@
+
+  <div id="search" class="buscar">
+        <%= form_tag(publishes_path, method: :get) do %>
+            <%= text_field_tag(:search, params[:search], placeholder: "Buscar", id:"input" ) %>
+            <%= submit_tag (""), id:"btn", class:"btn" %>
+                <div id="btn" class="btn">
+                    <i  class="bi bi-search"></i>
+                </div>
+        <% end %>
+  </div>

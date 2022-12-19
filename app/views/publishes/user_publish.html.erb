@@ -1,0 +1,30 @@
+<% @publishes.each do |publish| %>
+    <div class="card" id="card-comment1">
+        <div>
+            <p><strong>Tu publicacion:</strong></p>
+            <p><%= publish.title%></p>
+        </div>
+        <div>
+            <p><%= publish.content %></p>
+        </div>
+    </div>
+
+    <% if publish.user_id == current_user.id %>
+        <div class="row" id="btnPublish_id">
+            <div class="col-md-2">
+                <%= link_to "Editar publicacion", edit_publish_path(publish.id), class: 'btn btn-secondary', id:'btnEdit_p' %>
+            </div>
+            <div class="col-md-2">
+                <%= link_to "Regresar", publishes_path, class: 'btn btn-secondary', id:'btnBack_p' %>
+            </div>
+        </div>
+    <% else  %>
+        <div class="row" id="btnPublish_id">
+            <%= link_to "Regresar a inicio", publishes_path, class: 'btn btn-secondary' %>
+        </div>
+    <% end %>
+<% end %>
+
+<div class="paginate">
+    <%= paginate @publishes, id:'paginate'%>
+</div>

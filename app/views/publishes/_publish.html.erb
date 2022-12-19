@@ -1,0 +1,30 @@
+<div class="card" id="container-publishes">
+  <div class="card-body">
+    <div id="<%= dom_id publish %>">
+      <p><%= link_to "#{publish.title.capitalize}", publish, id:'title_publish' %></p>
+      <div class="body_publish">
+      <p><%= publish.content%></p>
+      </div>
+      <hr>      
+      <p id="create"><strong>Fecha publicacion:</strong> <%= publish.published_at.to_s.to_date%></p>
+      <p id="create"><strong>Creado por:</strong> <%= !publish.user.nickname.blank? ? publish.user.nickname.capitalize : "Anonimo"  %></p>
+      <p id="create"><strong>comentarios:</strong> <%= publish.comment.where(:publish_id == publish.id).count  %></p>
+      <%= button_to "Aporta tu comentario", new_comment_path(publish.id), method: "get",  class: 'btn btn-warning', id:'btnComentari'%>
+        <div class="row" id="container-like">
+          <div class="col-1" id="btnLike">
+            <%= button_to "", likes_publishes_path(publish.id,"likes"), method: "post",  class: 'btn btn-light position-absolute bi bi-emoji-laughing', id:"like"%>
+                <span class="position-relative top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              <%= publish.likes %>
+            </span>
+          </div>
+        <div class="col-1" id="btnDislike">
+          <%= button_to "", likes_publishes_path(publish.id,"dislikes"), method: "post",  class: 'btn btn-light position-absolute bi bi-emoji-dizzy', id:"dislike"%>
+          <span class="position-relative top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              <%= publish.dislikes %>
+          </span>
+        </div>                        
+      </div>
+    </div>    
+  </div>
+</div>
+

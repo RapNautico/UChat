@@ -1,34 +1,56 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Turbochat</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Admin", admin_dashboard_path, class: "nav-link" if current_user&.admin?%>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <div class="btn-group" role="group">
+        <% if current_user  %>
+          <a class="btn btn-warning bi bi-list" id="menu" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></a>    
+        <% end %>
+      <a id="name_ucode" href="/">UChat</a>
+    </div> 
+    <%# <div>
+      <% if user_signed_in?  %>
+        <%# <h5>Hola! <%= current_user.nickname.capitalize %></h5>
+      <%# <% end %>
+    <%# </div> %>
+    <div class="btn-group" role="group">       
+      <% if current_user %>
+            <h5 id="nick_perfil">Hola! <%= current_user.username.capitalize%></h5> 
+            <%# <h5 id="nick_perfil1"><span class="typed"></span></h5>     %>
+          <%= button_to '', destroy_user_session_path, method: :delete, form: {data: {turbo_confirm: 'Esta seguro?'}}, class: 'btn btn-light bi bi-door-closed', id:'btnLogout' %>
+      <% else  %> 
+        <%= link_to "", new_user_session_path, class: 'btn btn-light bi bi-person-fill', id:'btnSign_in' %> 
+      <% end %>   
+    </div>
   </div>
 </nav>
+
+<% if current_user %>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+  <%# <button type="button" id="btnClose" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> %>
+    <%= image_tag('logo5', id:'logo_menu') %>
+    <h3 class="offcanvas-title"><%= current_user.username.capitalize %>
+  </div>   
+  <div class="offcanvas-body">
+    <%# <center><h3></h3></center> %>
+    <hr>
+    <%# <h3>Mis Publicaciones:</h3> %>
+    <div id="content_Mpublics">
+      <%= link_to "Mis Publicaciones", user_publish_publishes_path(current_user.id), id:"btnMispiblicaciones" %>
+    </div>
+    <hr>
+    <%# <h3>Mis Comentarios:</h3> %>
+    <%# <div id="content_Mcomment">
+      <%= link_to "Mis Comentarios", comments_path, id:"btnMiscomment" 
+    </div> %>
+    <div id="content_Mcomment">
+        <%= link_to "Admin", admin_dashboard_path, id:"btnMiscomment", class: "nav-link" if current_user&.admin?%>
+    </div>
+    <hr>
+    <div id="content_Mcomment">
+      <%= link_to "Start Chatting", rooms_path, id:"btnMiscomment" %>
+    </div>
+    <hr>
+  </div>
+  <% end %>
+</div>     
+
