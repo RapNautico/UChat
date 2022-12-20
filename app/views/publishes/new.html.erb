@@ -1,6 +1,9 @@
 <div class="container" id="container_newP">
   <div class="card" id="new_publish">
     <%= render "form", publish: @publish %>
+    <div class="row" id="back-question">
+      <%= link_to "Regresar a inicio", publishes_path %>
+    </div> 
   </div>
 </div>
 

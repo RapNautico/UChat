@@ -1,0 +1,8 @@
+<%= render @comment %>
+<% if current_user.id == @comment.user_id %>
+<div>
+  <%= link_to "Editar este comentario", edit_comment_path(@comment) %> |
+  <%= link_to "Regresar a comentarios", comments_path %>
+  <%= button_to "Eliminar comentario", @comment, method: :delete, class: 'btn btn-warning', id:'btnComentari' %>
+</div>
+<% end %>

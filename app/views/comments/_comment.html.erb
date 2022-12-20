@@ -1,0 +1,11 @@
+<div class="card"  id="card-comment1">
+  <div id="<%= dom_id comment %>">
+  <p><strong>Publicacion:</strong></p>
+  <% if !@publish.blank?  %>
+    <p><%= @publish.first.title.capitalize %></p><br>
+  <% end %>
+    <p><strong>Tu comentario:</strong></p>
+    <p><%= comment.body%></p>
+  </div>
+</div>
+

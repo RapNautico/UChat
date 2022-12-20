@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'call', to: 'call#user', as: 'call_user'
   post 'call', to: 'call#create'
 
+  resources :comments
   resources :publishes do
     collection do
       post 'likes/:id', to: 'publishes#likes_publish', as: :likes
