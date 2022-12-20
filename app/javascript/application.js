@@ -4,3 +4,5 @@ import "controllers";
 import "channels";
 import "chartkick";
 import "Chart.bundle";
+import "trix"
+import "@rails/actiontext"

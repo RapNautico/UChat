@@ -26,13 +26,14 @@ body {
   height: calc(100vh - 150px);
 }
 #messages {
-  height: calc(100vh - 150px);
+  height: calc(100vh - 190px);
   overflow-x: hidden;
   overflow-y: scroll;
 }
 #room_container {
   height: calc(100vh - 56px);
   margin-right: 0px !important;
+  border-radius: 20px;
 }
 #side_panel {
   height: calc(100vh - 56px);
@@ -44,6 +45,12 @@ body {
 #chatroom_container {
   height: calc(100vh - 56px);
   margin-right: 0px !important;
+  margin-top: -4rem !important;
+  border-radius: 20px;
+  box-shadow: black 0px 5px 10px;
+}
+.text-center{
+  margin-top: 2rem;
 }
 .msg-content {
   width: 80%;
@@ -75,6 +82,7 @@ body {
 .user_list_item {
   height: auto;
   background-color: #343a40 !important;
+  margin-top: 2rem;
 }
 .room_list_item {
   height: auto;
@@ -151,5 +159,5 @@ body {
 }
 
 a {
-  color: #fff !important;
+  color: #fff;
 }
