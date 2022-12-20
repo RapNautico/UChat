@@ -1,0 +1,31 @@
+<%= form_with(model: comment) do |form| %>
+  <% if comment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<div class="card" id="card-comment">
+  <div class="card-body">
+  <h4 class="card-title mb-3">Aporta tu Comentario</h4>
+  <div>
+    <%# <%= form.label :body, style: "display: block" %>
+    <%= form.rich_text_area :body, class:"form-control", id:"comment" %>
+    <% if !@publicacion.blank? %>
+    <%= form.hidden_field :publish_id, value: @publicacion.first.id %>
+    <% end %>
+  </div>
+  <div class="mt-3">
+    <p><%= form.submit  class: 'btn btn-warning button', id:'btnComentari', value:'Guardar' %></p>
+    <a href="/">Regresar a incio</a>
+    <%# <%= link_to "Regresar a incio", comments_path, id:"regresar" %>
+  </div>
+</div>
+ </div> 
+<% end %>

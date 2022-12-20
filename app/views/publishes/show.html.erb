@@ -27,16 +27,16 @@
     <h4 class="card-title"><center>Comentarios</center></h4>
   <hr>
     <div class='mt-3'>
-      <% @comentarios.each do |coments|  %> 
+      <% @comments.each do |coments|  %> 
         <div class="card text-bg-light mb-3" style="max-width: 100%;">
             <div class="card-body">
               <p class="card-text"><%= coments.body %></p>
-              <p id="create"><strong>Fecha Respuesta:</strong> fecha</p>
-              <p id="create"><strong>Creado por:</strong> nick</p>
+              <p id="create"><strong>Commented ago:</strong> <%= time_ago_in_words(@publish.published_at)%></p>
+              <p id="create"><strong>Created by:</strong> <%= @publish.user.username %></p>
             </div>
           </div>
       <% end %>
-      <%= paginate @comentarios, id:'paginate',  style: "max-width: 100%;" %>
+      <%= paginate @comments, id:'paginate',  style: "max-width: 100%;" %>
         </div>             
     </div>
 </div>

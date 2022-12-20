@@ -6,9 +6,9 @@
       <p><%= publish.content%></p>
       </div>
       <hr>      
-      <p id="create"><strong>Fecha publicacion:</strong> <%= publish.published_at.to_s.to_date%></p>
-      <p id="create"><strong>Creado por:</strong> <%= !publish.user.nickname.blank? ? publish.user.nickname.capitalize : "Anonimo"  %></p>
-      <p id="create"><strong>comentarios:</strong> <%= publish.comment.where(:publish_id == publish.id).count  %></p>
+      <p id="create"><strong>Publication date:</strong> <%= publish.published_at.to_s.to_date%></p>
+      <p id="create"><strong>Created by:</strong> <%= !publish.user.username.blank? ? publish.user.username.capitalize : "Anonimo"  %></p>
+      <p id="create"><strong>comments:</strong> <%= publish.comment.where(:publish_id == publish.id).count  %></p>
       <%= button_to "Aporta tu comentario", new_comment_path(publish.id), method: "get",  class: 'btn btn-warning', id:'btnComentari'%>
         <div class="row" id="container-like">
           <div class="col-1" id="btnLike">

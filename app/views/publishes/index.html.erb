@@ -49,7 +49,7 @@
                 <div class="card text-bg-light mb-3" style="max-width: 100%;">
                 <div class="card-header"><h6><%= morelikes.title.capitalize %></h6></div>
                   <div class="card-body">
-                    <p class="card-text" id="create"><strong>Publicado por:</strong>  <%= morelikes.user.nickname.capitalize %> </p>
+                    <p class="card-text" id="create"><strong>Publicado por:</strong>  <%= morelikes.user.username.capitalize %> </p>
                     <p class="card-text" id="create"><strong>Valoración: </strong> 
                     <% if total.to_f != 0 || total.to_f < 0 %>
                     <% total_2 = (morelikes.likes.to_f / (total.to_f)) %>
