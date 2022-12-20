@@ -202,3 +202,12 @@
 .reset{
     display: flex;
 }
+.button{
+    background-color: #a2cb51 !important;
+    border-color: #a2cb51 !important;
+}
+
+.button:hover{
+    background-color: #8bbe25 !important;
+    border-color: #8bbe25 !important;
+}

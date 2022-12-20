@@ -12,13 +12,13 @@
       <%= button_to "Aporta tu comentario", new_comment_path(publish.id), method: "get",  class: 'btn btn-warning', id:'btnComentari'%>
         <div class="row" id="container-like">
           <div class="col-1" id="btnLike">
-            <%= button_to "", likes_publishes_path(publish.id,"likes"), method: "post",  class: 'btn btn-light position-absolute bi bi-emoji-laughing', id:"like"%>
+            <%= button_to "", likes_publishes_path(publish.id,"likes"), method: "post",  class: 'btn btn-light position-absolute bi bi-emoji-laughing button', id:"like"%>
                 <span class="position-relative top-0 start-100 translate-middle badge rounded-pill bg-danger">
               <%= publish.likes %>
             </span>
           </div>
         <div class="col-1" id="btnDislike">
-          <%= button_to "", likes_publishes_path(publish.id,"dislikes"), method: "post",  class: 'btn btn-light position-absolute bi bi-emoji-dizzy', id:"dislike"%>
+          <%= button_to "", likes_publishes_path(publish.id,"dislikes"), method: "post",  class: 'btn btn-light position-absolute bi bi-emoji-dizzy button', id:"dislike"%>
           <span class="position-relative top-0 start-100 translate-middle badge rounded-pill bg-danger">
               <%= publish.dislikes %>
           </span>
