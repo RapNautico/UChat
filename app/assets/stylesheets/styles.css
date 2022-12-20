@@ -167,19 +167,6 @@
     margin-bottom: 1%;
 }
 
-html::before {
-    background: url("fondo_ucode.svg") center center;
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-size: auto 100% !important;
-    opacity: 30%;
-    height: 200% !important;    
- }
 #alert_danger{
     width: 100%;
 }
