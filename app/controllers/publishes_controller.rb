@@ -1,8 +1,12 @@
 class PublishesController < ApplicationController
+    after_action :set_status
     before_action :set_publish, only: %i[ show edit update destroy ]
     before_action :authenticate_user!, except:[ :index, :likes_publish ]
+    before_action :recent_messages, only: [:index]
 
     def index
+        recent_messages
+        @online_users = User.where.not(status: User.statuses[:offline]).count
         if !params[:search].blank?
             q = params[:search]
             @publishes = Publish.order("published_at DESC").search_content(q).page params[:page]
@@ -85,7 +89,17 @@ class PublishesController < ApplicationController
         @publish = Publish.find(params[:id])
     end
 
+    def set_status
+        current_user.update!(status: User.statuses[:offline]) if current_user
+    end
+
     def publish_params
         params.require(:publish).permit(:title, :content, :likes, :dislikes)
+    end
+
+    def recent_messages
+        public_rooms = Room.public_rooms
+    
+        @messages = Message.where(room: public_rooms).order(created_at: :desc).limit(5)
     end
 end

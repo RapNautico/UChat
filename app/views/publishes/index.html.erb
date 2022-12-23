@@ -1,29 +1,29 @@
 <div class="container">
 <div class="row">
-    <div class="col-md-12">
+  <div class="row justify-content-between">
+    <div class="col-6" id='btn_filter'> 
+      <%= link_to "Formula una pregunta", new_publish_path, class: 'btn btn-secondary box-1', id:'btnQuestion' %>
+        <div class="btn-group" role="group">  
+          <%# <%= button_to 'Activas', user_session_path, class: 'btn btn-warning box-1', id:'btnActive'%>
+          <%# <%= button_to 'Populares', user_session_path, class: 'btn btn-warning box-1', id:'btnPopular'%>
+          <%# <button type="button" class="btn btn-warning bi bi-filter box-1" data-bs-toggle="dropdown" aria-expanded="false" id="btnfilter"></button> %>
+          <%# <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <li><a class="dropdown-item" href="#">Semana</a></li>
+            <li><a class="dropdown-item" href="#">Mes</a></li>
+            <li><a class="dropdown-item" href="#">Año</a></li>
+          </ul>         %>
+        </div>      
+      </div>
+    <div class="col-6">
       <%= render "search" %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12" id='btn_filter'> 
-    <%= link_to "Formula una pregunta", new_publish_path, class: 'btn btn-secondary box-1', id:'btnQuestion' %>
-      <div class="btn-group" role="group">  
-        <%# <%= button_to 'Activas', user_session_path, class: 'btn btn-warning box-1', id:'btnActive'%>
-        <%# <%= button_to 'Populares', user_session_path, class: 'btn btn-warning box-1', id:'btnPopular'%>
-        <%# <button type="button" class="btn btn-warning bi bi-filter box-1" data-bs-toggle="dropdown" aria-expanded="false" id="btnfilter"></button> %>
-        <%# <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-          <li><a class="dropdown-item" href="#">Semana</a></li>
-          <li><a class="dropdown-item" href="#">Mes</a></li>
-          <li><a class="dropdown-item" href="#">Año</a></li>
-        </ul>         %>
-      </div>      
     </div>
   </div>
   <div class="row" id="container-card">
     <div class="col-md-8">
-      <div class="card">
+      <div class="card principal_card">
         <div class="card-body" id="card_Pprincipal">
-        <h3 class="card-title" id="publish_name">Publicaciones</h3>
+        <h3 class="card-title" id="publish_name">Publicacions</h3>
         <hr>
           <div class='mt-3  '>
             <div id="publishes">
@@ -46,7 +46,7 @@
             <div class='mt-3  votadosindex'>
               <% @more_likes.each do |morelikes|  %> 
                     <% total = (morelikes.likes + morelikes.dislikes)  %>
-                <div class="card text-bg-light mb-3" style="max-width: 100%;">
+                <div class="card text-bg-light mb-3 card_votados" style="max-width: 100%;">
                 <div class="card-header"><h6><%= morelikes.title.capitalize %></h6></div>
                   <div class="card-body">
                     <p class="card-text" id="create"><strong>Publicado por:</strong>  <%= morelikes.user.username.capitalize %> </p>
@@ -60,6 +60,21 @@
                     <p><%= link_to "Ver", publish_path(morelikes.id) %></p>
                   </div>
                 </div>             
+              <% end %>
+            </div>
+        </div>  
+      </div>
+      <div class="card" id="card-messages">
+        <div class="card-body">
+          <h5 class="card-title"><center>Messages</center></h5>
+          <hr>
+            <div class='preview'>
+              <% if current_user %>
+                <% @messages.each do |message| %>
+                  <%= render "messages/message_preview", message: message %>
+                <% end %>
+              <% else %>
+                <p><center>The messages only view if you are login</center></p>
               <% end %>
             </div>
         </div>  

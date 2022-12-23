@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get 'rooms/join/:id', to: 'rooms#join', as: 'join_room'
 
   root 'publishes#index'
+
+  get 'pages/home', to: 'pages#home', as: 'home'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get 'user/:id', to: 'users#show', as: 'user'
   # Defines the root path route ("/")
