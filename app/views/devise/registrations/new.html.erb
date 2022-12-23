@@ -8,19 +8,8 @@
       <div class="row">
         <div class="col-md">
           <div class="form-floating">
-              <%= f.label :avatar %>
-              <br>
-              <br>
-              <%= f.file_field :avatar, class: 'file' %>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md">
-          <div class="form-floating">
-            <%= f.label :username %>
             <%= f.text_field :username, required: true, class: 'form-control' %>
+            <%= f.label :username %>
           </div>
         </div>
       </div>
@@ -28,8 +17,8 @@
       <div class="row">
         <div class="col-md">
           <div class="form-floating">
-            <%= f.label :email %>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', required: true %>
+            <%= f.label :email %>
           </div>
         </div>
       </div>
@@ -37,8 +26,8 @@
       <div class="row">
         <div class="col-md">
           <div class="form-floating">
-            <%= f.label :password %>
             <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', required: true %>
+            <%= f.label :password %>
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> caracteres minimo)</em>
             <% end %>
@@ -49,8 +38,8 @@
       <div class="row">
         <div class="col-md">
           <div class="form-floating">
-            <%= f.label :password_confirmation %>
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', required: true %>
+            <%= f.label :password_confirmation %>
           </div>
         </div>
       </div>
