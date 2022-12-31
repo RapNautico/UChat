@@ -38,14 +38,16 @@
       <%= link_to "Mis Publicaciones", user_publish_publishes_path(current_user.id), id:"btnMispiblicaciones" %>
     </div>
     <hr>
-    <%# <h3>Mis Comentarios:</h3> %>
-    <%# <div id="content_Mcomment">
-      <%= link_to "Mis Comentarios", comments_path, id:"btnMiscomment" 
-    </div> %>
     <div id="content_Mcomment">
-        <%= link_to "Admin", admin_dashboard_path, id:"btnMiscomment", class: "nav-link" if current_user&.admin?%>
-    </div>
+        <%= link_to "Mis Comentarios", comments_path, id:"btnMiscomment" %>
+    </div> 
     <hr>
+    <% if current_user&.admin? %>
+      <div id="content_Mcomment">
+          <%= link_to "Admin", admin_dashboard_path, id:"btnMiscomment", class: "nav-link" if current_user&.admin?%>
+      </div>
+      <hr>
+    <% end %>
     <div id="content_Mcomment">
       <%= link_to "Start Chatting", rooms_path, id:"btnMiscomment" %>
     </div>

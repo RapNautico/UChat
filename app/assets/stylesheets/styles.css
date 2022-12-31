@@ -65,6 +65,8 @@ body{
     background-color: #F7F9F9;
     padding: 3%;
     margin-top: 5% !important;
+    overflow-y: auto;
+    height: 80vh;
 }
 #card-comment{
     margin-top: 5%;
@@ -347,7 +349,7 @@ body{
 .votadosindex{
     padding: 5%;
     display: block;
-    height:500px;
+    height: 30vh;
     width: 100%;
     overflow-y: auto;
     margin-top: -15px;
@@ -366,7 +368,7 @@ body{
 
 #publishes{
     overflow-y: auto;
-    height: 55vh;
+    height: 60vh;
 }
 
 #card-messages{
@@ -612,7 +614,12 @@ and (max-width: 1369px){
     .principal_card {
         height: 80vh;
     }
-
+    .menu{
+        margin-top: -2%;
+    }
+    #btn_filter {
+        margin-bottom: 0%;
+    }
     #card-messages {
         height: 33vh;
         margin-top: 1rem;
@@ -620,17 +627,17 @@ and (max-width: 1369px){
 
     #publishes {
         overflow-y: auto;
-        height: 60vh;
+        height: 62vh;
     }
 
     .preview {
         overflow-y: auto;
         overflow-x: hidden;
-        height: 62%;
+        height: 38%;
     }
 
     #container-publishes {
-        height: 88%;
+        height: 70vh;
     }
 
     #btnDislike {
@@ -638,6 +645,15 @@ and (max-width: 1369px){
         position: static !important;
         margin-left: 3%;
         margin-right: 3%;
+    }
+    #dislike{
+        margin-bottom: 6%;
+    }
+    #like{
+        margin-bottom: 6%;
+    }
+    #search {
+        margin-bottom: 2px;
     }
 } 
 

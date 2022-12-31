@@ -31,8 +31,8 @@
         <div class="card text-bg-light mb-3" style="max-width: 100%;">
             <div class="card-body">
               <p class="card-text"><%= coments.body %></p>
-              <p id="create"><strong>Commented ago:</strong> <%= time_ago_in_words(@publish.published_at)%></p>
-              <p id="create"><strong>Created by:</strong> <%= @publish.user.username %></p>
+              <p id="create"><strong>Commented ago:</strong> <%= time_ago_in_words(coments.created_at)%></p>
+              <p id="create"><strong>Created by:</strong> <%= coments.user.username %></p>
             </div>
           </div>
       <% end %>
